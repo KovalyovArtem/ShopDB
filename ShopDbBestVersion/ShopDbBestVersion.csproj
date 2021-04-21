@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C23C53FC-483C-42C9-BE38-7C54A702D16A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ShopDbBestVersion</RootNamespace>
+    <AssemblyName>ShopDbBestVersion</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSERT\insertSkl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSERT\insertSkl.Designer.cs">
+      <DependentUpon>insertSkl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSERT\insertTov.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSERT\insertTov.Designer.cs">
+      <DependentUpon>insertTov.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSERT\insertOtd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSERT\insertOtd.Designer.cs">
+      <DependentUpon>insertOtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSERT\insertPersons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSERT\insertPersons.Designer.cs">
+      <DependentUpon>insertPersons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSERT\insertProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSERT\insertProd.Designer.cs">
+      <DependentUpon>insertProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSERT\insertDol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSERT\insertDol.Designer.cs">
+      <DependentUpon>insertDol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="INSERT\insertFirmi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="INSERT\insertFirmi.Designer.cs">
+      <DependentUpon>insertFirmi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopDS.cs">
+      <DependentUpon>ShopDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ShopDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShopDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UPDATE\updateDol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UPDATE\updateDol.Designer.cs">
+      <DependentUpon>updateDol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPDATE\updateFirmi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UPDATE\updateFirmi.Designer.cs">
+      <DependentUpon>updateFirmi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPDATE\updateOtd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UPDATE\updateOtd.Designer.cs">
+      <DependentUpon>updateOtd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPDATE\updatePersons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UPDATE\updatePersons.Designer.cs">
+      <DependentUpon>updatePersons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPDATE\updateSkl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UPDATE\updateSkl.Designer.cs">
+      <DependentUpon>updateSkl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UPDATE\updateTov.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UPDATE\updateTov.Designer.cs">
+      <DependentUpon>updateTov.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSERT\insertDol.resx">
+      <DependentUpon>insertDol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSERT\insertFirmi.resx">
+      <DependentUpon>insertFirmi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSERT\insertOtd.resx">
+      <DependentUpon>insertOtd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSERT\insertPersons.resx">
+      <DependentUpon>insertPersons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSERT\insertProd.resx">
+      <DependentUpon>insertProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSERT\insertSkl.resx">
+      <DependentUpon>insertSkl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="INSERT\insertTov.resx">
+      <DependentUpon>insertTov.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UPDATE\updateDol.resx">
+      <DependentUpon>updateDol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPDATE\updateFirmi.resx">
+      <DependentUpon>updateFirmi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPDATE\updateOtd.resx">
+      <DependentUpon>updateOtd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPDATE\updatePersons.resx">
+      <DependentUpon>updatePersons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPDATE\updateSkl.resx">
+      <DependentUpon>updateSkl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UPDATE\updateTov.resx">
+      <DependentUpon>updateTov.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="ShopDS.xsc">
+      <DependentUpon>ShopDS.xsd</DependentUpon>
+    </None>
+    <None Include="ShopDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ShopDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ShopDS.xss">
+      <DependentUpon>ShopDS.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ShopDB.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ShopDB_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>ShopDB.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
