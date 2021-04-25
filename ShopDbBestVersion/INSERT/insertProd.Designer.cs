@@ -30,13 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(insertProd));
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.cmbxNamaTov = new System.Windows.Forms.ComboBox();
             this.tovarbIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shopDS = new ShopDbBestVersion.ShopDS();
             this.cbxDontClose = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,24 +49,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.shopDS)).BeginInit();
             this.SuspendLayout();
             // 
-            // dtpDate
-            // 
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(101, 39);
-            this.dtpDate.MaxDate = new System.DateTime(2021, 4, 21, 0, 0, 0, 0);
-            this.dtpDate.MinDate = new System.DateTime(2021, 4, 14, 0, 0, 0, 0);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(95, 20);
-            this.dtpDate.TabIndex = 58;
-            this.dtpDate.Value = new System.DateTime(2021, 4, 21, 0, 0, 0, 0);
-            // 
             // cmbxNamaTov
             // 
             this.cmbxNamaTov.DataSource = this.tovarbIBindingSource;
             this.cmbxNamaTov.DisplayMember = "Name";
             this.cmbxNamaTov.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxNamaTov.FormattingEnabled = true;
-            this.cmbxNamaTov.Location = new System.Drawing.Point(101, 64);
+            this.cmbxNamaTov.Location = new System.Drawing.Point(101, 42);
             this.cmbxNamaTov.Name = "cmbxNamaTov";
             this.cmbxNamaTov.Size = new System.Drawing.Size(288, 21);
             this.cmbxNamaTov.TabIndex = 57;
@@ -87,7 +74,7 @@
             // cbxDontClose
             // 
             this.cbxDontClose.AutoSize = true;
-            this.cbxDontClose.Location = new System.Drawing.Point(10, 160);
+            this.cbxDontClose.Location = new System.Drawing.Point(10, 138);
             this.cbxDontClose.Name = "cbxDontClose";
             this.cbxDontClose.Size = new System.Drawing.Size(149, 30);
             this.cbxDontClose.TabIndex = 56;
@@ -99,26 +86,18 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(188, 201);
+            this.label10.Location = new System.Drawing.Point(188, 179);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(125, 16);
             this.label10.TabIndex = 55;
             this.label10.Text = "Вы не ввели данные";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label10.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 13);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "Дата продажи";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 94);
+            this.label3.Location = new System.Drawing.Point(7, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 53;
@@ -127,7 +106,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 68);
+            this.label2.Location = new System.Drawing.Point(7, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 52;
@@ -136,7 +115,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 117);
+            this.label1.Location = new System.Drawing.Point(7, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 51;
@@ -144,21 +123,21 @@
             // 
             // tbxDiscount
             // 
-            this.tbxDiscount.Location = new System.Drawing.Point(101, 117);
+            this.tbxDiscount.Location = new System.Drawing.Point(101, 95);
             this.tbxDiscount.Name = "tbxDiscount";
             this.tbxDiscount.Size = new System.Drawing.Size(288, 20);
             this.tbxDiscount.TabIndex = 50;
             // 
             // tbxProdano
             // 
-            this.tbxProdano.Location = new System.Drawing.Point(101, 91);
+            this.tbxProdano.Location = new System.Drawing.Point(101, 69);
             this.tbxProdano.Name = "tbxProdano";
             this.tbxProdano.Size = new System.Drawing.Size(288, 20);
             this.tbxProdano.TabIndex = 49;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(309, 156);
+            this.btnClose.Location = new System.Drawing.Point(309, 134);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 42);
             this.btnClose.TabIndex = 48;
@@ -168,7 +147,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(213, 156);
+            this.btnAdd.Location = new System.Drawing.Point(213, 134);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 42);
             this.btnAdd.TabIndex = 47;
@@ -205,14 +184,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 228);
+            this.ClientSize = new System.Drawing.Size(401, 190);
             this.Controls.Add(this.cmbxTov);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.cmbxNamaTov);
             this.Controls.Add(this.cbxDontClose);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -235,12 +212,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dtpDate;
         private System.Windows.Forms.ComboBox cmbxNamaTov;
         private System.Windows.Forms.CheckBox cbxDontClose;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

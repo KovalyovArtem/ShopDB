@@ -23,7 +23,8 @@ namespace ShopDbBestVersion
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ShopDbBestVersion.Properties.Settings.ShopDBConnectionString"].ConnectionString);
             sqlConnection.Open();
 
-            SqlCommand sqlDel = new SqlCommand("DELETE FROM Prodaji WHERE (Date > GETDATE() AND Date <  DATEADD(day, 1, GETDATE()))", sqlConnection);
+            SqlCommand sqlDel = new SqlCommand("DELETE FROM Prodaji WHERE Date < @Date", sqlConnection);
+            sqlDel.Parameters.AddWithValue("Date", DateTime.Today);
             sqlDel.ExecuteNonQuery();
 
             spcMain.Panel2.Visible = false;
@@ -47,21 +48,13 @@ namespace ShopDbBestVersion
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.TovarbI". При необходимости она может быть перемещена или удалена.
             this.tovarbITableAdapter.Fill(this.shopDS.TovarbI);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Dolzhnost". При необходимости она может быть перемещена или удалена.
             this.dolzhnostTableAdapter.Fill(this.shopDS.Dolzhnost);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Otdeli". При необходимости она может быть перемещена или удалена.
             this.otdeliTableAdapter.Fill(this.shopDS.Otdeli);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Skladi". При необходимости она может быть перемещена или удалена.
             this.skladiTableAdapter.Fill(this.shopDS.Skladi);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.TovarbI". При необходимости она может быть перемещена или удалена.
             this.tovarbITableAdapter.Fill(this.shopDS.TovarbI);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Prodaji". При необходимости она может быть перемещена или удалена.
             this.prodajiTableAdapter.Fill(this.shopDS.Prodaji);            
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Persons". При необходимости она может быть перемещена или удалена.
             this.personsTableAdapter.Fill(this.shopDS.Persons);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Firmi". При необходимости она может быть перемещена или удалена.
             this.firmiTableAdapter.Fill(this.shopDS.Firmi);
         }
 
@@ -331,8 +324,11 @@ namespace ShopDbBestVersion
                             {
                                 try
                                 {
-                                    //SqlCommand sqlEdit = new SqlCommand("UPDATE TovarbI SET Quantity = (SELECT Quantity FROM TovarbI) - (SELECT Prodano FROM Prodaji) WHERE ID_Tov = (SELECT ID_Tov FROM Prodaji)", sqlConnection);
-                                    //sqlEdit.ExecuteNonQuery();
+                                    btnReport_Click(sender, e);
+                                    SqlCommand sqlEdit = new SqlCommand("UPDATE TovarbI SET TovarbI.Quantity = TovarbI.Quantity - Prodaji.Prodano FROM TovarbI INNER JOIN Prodaji ON TovarbI.ID_Tov = Prodaji.ID_Tov;" +
+                                        "DELETE FROM Prodaji", sqlConnection);
+                                    sqlEdit.ExecuteNonQuery();
+                                    RefreshAllDgv();
                                 }
                                 catch (Exception ex)
                                 {
@@ -391,8 +387,8 @@ namespace ShopDbBestVersion
 
                         if (cbxSelectTableMain.Text == "Продажи")
                         {
-                            SqlCommand sqlDel = new SqlCommand("DELETE FROM Prodaji WHERE Tovar = @tovar", sqlConnection);
-                            sqlDel.Parameters.AddWithValue("tovar", rowID);
+                            SqlCommand sqlDel = new SqlCommand("DELETE FROM Prodaji WHERE ID_Prod = @ID_Prod", sqlConnection);
+                            sqlDel.Parameters.AddWithValue("ID_Prod", rowID);
                             sqlDel.ExecuteNonQuery();
                         }
                         if (cbxSelectTableMain.Text == "Склады")
@@ -439,24 +435,40 @@ namespace ShopDbBestVersion
         }
         #endregion
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            sqlConnection.Close();
-        }
-
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             RefreshAllDgv();
         }
 
-        private void обновитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Report report = new Report();
+            report.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void msbtnRefresh_Click(object sender, EventArgs e)
         {
             RefreshAllDgv();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason != CloseReason.UserClosing)
+                return;
+
+            if (MessageBox.Show("Вы действительно хотите выйти?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                e.Cancel = true;
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            AboutProgramm aProg = new AboutProgramm();
+            aProg.Show();
         }
     }
 }

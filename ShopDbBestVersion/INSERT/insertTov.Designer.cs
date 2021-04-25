@@ -63,6 +63,7 @@
             // 
             this.cmbxNameFirm.DataSource = this.firmiBindingSource;
             this.cmbxNameFirm.DisplayMember = "Name";
+            this.cmbxNameFirm.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxNameFirm.FormattingEnabled = true;
             this.cmbxNameFirm.Location = new System.Drawing.Point(138, 91);
             this.cmbxNameFirm.Name = "cmbxNameFirm";
@@ -140,6 +141,7 @@
             // 
             this.cmbxSkl.DataSource = this.skladiBindingSource;
             this.cmbxSkl.DisplayMember = "ID_Skl";
+            this.cmbxSkl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxSkl.FormattingEnabled = true;
             this.cmbxSkl.Location = new System.Drawing.Point(138, 39);
             this.cmbxSkl.Name = "cmbxSkl";
@@ -156,6 +158,7 @@
             // 
             this.cmbxOtd.DataSource = this.otdeliBindingSource;
             this.cmbxOtd.DisplayMember = "Name";
+            this.cmbxOtd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbxOtd.FormattingEnabled = true;
             this.cmbxOtd.Location = new System.Drawing.Point(138, 12);
             this.cmbxOtd.Name = "cmbxOtd";

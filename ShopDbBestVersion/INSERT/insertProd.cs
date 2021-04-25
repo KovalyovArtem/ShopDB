@@ -28,7 +28,6 @@ namespace ShopDbBestVersion
 
         private void insertProd_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.TovarbI". При необходимости она может быть перемещена или удалена.
             this.tovarbITableAdapter.Fill(this.shopDS.TovarbI);
 
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ShopDbBestVersion.Properties.Settings.ShopDBConnectionString"].ConnectionString);
@@ -42,25 +41,37 @@ namespace ShopDbBestVersion
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(cmbxNamaTov.Text) && !string.IsNullOrWhiteSpace(cmbxNamaTov.Text))
+            if (!string.IsNullOrEmpty(tbxProdano.Text) && !string.IsNullOrWhiteSpace(tbxProdano.Text) &&
+                !string.IsNullOrEmpty(tbxDiscount.Text) && !string.IsNullOrWhiteSpace(tbxDiscount.Text))
             {
                 try
                 {
-                    SqlCommand sqlAdd = new SqlCommand("INSERT INTO Prodaji (ID_Tov, Date, Tovar, Prodano, Discount) VALUES (@ID_Tov, @Date, @Tovar, @Prodano, @Discount)", sqlConnection);
-                    sqlAdd.Parameters.AddWithValue("ID_Tov", cmbxTov.SelectedValue);
-                    sqlAdd.Parameters.AddWithValue("Date", Convert.ToDateTime(dtpDate.Text));
-                    sqlAdd.Parameters.AddWithValue("Tovar", cmbxNamaTov.Text);
-                    sqlAdd.Parameters.AddWithValue("Prodano", Convert.ToDouble(tbxProdano.Text));
-                    sqlAdd.Parameters.AddWithValue("Discount", Convert.ToInt32(tbxDiscount.Text));
-                    sqlAdd.ExecuteNonQuery();
+                    SqlCommand sql = new SqlCommand("SELECT Quantity FROM TovarbI WHERE ID_Tov = @ID_Tov", sqlConnection);
+                    sql.Parameters.AddWithValue("ID_Tov", cmbxTov.SelectedValue);
+                    if (Convert.ToInt32(tbxProdano.Text) > Convert.ToInt32(sql.ExecuteScalar()))
+                    {
+                        this.Size = new Size(417, 253);
+                        label10.Text = "Товаров было продано\n больше чем надо";
+                        label10.Visible = true;
+                    }
+                    else
+                    {
+                        SqlCommand sqlAdd = new SqlCommand("INSERT INTO Prodaji (ID_Tov, Date, Tovar, Prodano, Discount) VALUES (@ID_Tov, @Date, @Tovar, @Prodano, @Discount)", sqlConnection);
+                        sqlAdd.Parameters.AddWithValue("ID_Tov", cmbxTov.SelectedValue);
+                        sqlAdd.Parameters.AddWithValue("Date", DateTime.Today);
+                        sqlAdd.Parameters.AddWithValue("Tovar", cmbxNamaTov.Text);
+                        sqlAdd.Parameters.AddWithValue("Prodano", Convert.ToDouble(tbxProdano.Text));
+                        sqlAdd.Parameters.AddWithValue("Discount", Convert.ToInt32(tbxDiscount.Text));
+                        sqlAdd.ExecuteNonQuery();
 
-                    if (!cbxDontClose.Checked)
-                        this.Close();
+                        if (!cbxDontClose.Checked)
+                            this.Close();
 
-                    label10.Visible = false;
-                    cmbxNamaTov.Items.Clear();
-                    tbxProdano.Clear();
-                    tbxDiscount.Clear();
+                        label10.Text = "Вы не ввели данные";
+                        label10.Visible = false;
+                        tbxProdano.Clear();
+                        tbxDiscount.Clear();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -69,6 +80,8 @@ namespace ShopDbBestVersion
             }
             else
             {
+                this.Size = new Size(417, 243);
+                label10.Text = "Вы не ввели данные";
                 label10.Visible = true;
             }
         }

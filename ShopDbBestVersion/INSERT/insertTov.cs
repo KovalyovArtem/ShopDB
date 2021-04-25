@@ -28,11 +28,8 @@ namespace ShopDbBestVersion
 
         private void insertTov_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Firmi". При необходимости она может быть перемещена или удалена.
             this.firmiTableAdapter.Fill(this.shopDS.Firmi);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Skladi". При необходимости она может быть перемещена или удалена.
             this.skladiTableAdapter.Fill(this.shopDS.Skladi);
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "shopDS.Otdeli". При необходимости она может быть перемещена или удалена.
             this.otdeliTableAdapter.Fill(this.shopDS.Otdeli);
 
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["ShopDbBestVersion.Properties.Settings.ShopDBConnectionString"].ConnectionString);
@@ -66,9 +63,6 @@ namespace ShopDbBestVersion
                     tbxName.Clear();
                     tbxPrica.Clear();
                     tbxQuantity.Clear();
-                    cmbxNameFirm.Items.Clear();
-                    cmbxOtd.Items.Clear();
-                    cmbxSkl.Items.Clear();
                 }
                 catch (Exception ex)
                 {

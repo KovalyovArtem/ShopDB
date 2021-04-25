@@ -70,8 +70,6 @@ namespace ShopDbBestVersion
                     tbxLastName.Clear();
                     tbxAdress.Clear();
                     tbxTelephone.Clear();
-                    cmbxDol.Items.Clear();
-                    cmbxOtd.Items.Clear();
                     tbxSalary.Clear();
                 }
                 catch (Exception ex)
