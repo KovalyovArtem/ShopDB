@@ -324,7 +324,7 @@ namespace ShopDbBestVersion
                             {
                                 try
                                 {
-                                    btnReport_Click(sender, e);
+                                    btnReportProd_Click(sender, e);
                                     SqlCommand sqlEdit = new SqlCommand("UPDATE TovarbI SET TovarbI.Quantity = TovarbI.Quantity - Prodaji.Prodano FROM TovarbI INNER JOIN Prodaji ON TovarbI.ID_Tov = Prodaji.ID_Tov;" +
                                         "DELETE FROM Prodaji", sqlConnection);
                                     sqlEdit.ExecuteNonQuery();
@@ -440,12 +440,6 @@ namespace ShopDbBestVersion
             RefreshAllDgv();
         }
 
-        private void btnReport_Click(object sender, EventArgs e)
-        {
-            Report report = new Report();
-            report.Show();
-        }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -463,6 +457,8 @@ namespace ShopDbBestVersion
 
             if (MessageBox.Show("Вы действительно хотите выйти?", "Выход", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 e.Cancel = true;
+            else
+                sqlConnection.Close();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -470,5 +466,25 @@ namespace ShopDbBestVersion
             AboutProgramm aProg = new AboutProgramm();
             aProg.Show();
         }
+
+        #region Отчёты
+        private void btnReportPer_Click(object sender, EventArgs e)
+        {
+            ReportPersons reportPersons = new ReportPersons();
+            reportPersons.ShowDialog();
+        }
+
+        private void btnReportOtd_Click(object sender, EventArgs e)
+        {
+            ReportOtdeli reportOtdeli = new ReportOtdeli();
+            reportOtdeli.ShowDialog();
+        }
+
+        private void btnReportProd_Click(object sender, EventArgs e)
+        {
+            Report report = new Report();
+            report.ShowDialog();
+        }
+        #endregion
     }
 }

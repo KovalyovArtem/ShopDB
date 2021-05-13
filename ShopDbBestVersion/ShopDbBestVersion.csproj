@@ -136,11 +136,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Report.cs">
+    <Compile Include="Reports\Report.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report.Designer.cs">
+    <Compile Include="Reports\Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportOtdeli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportOtdeli.Designer.cs">
+      <DependentUpon>ReportOtdeli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportPersons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportPersons.Designer.cs">
+      <DependentUpon>ReportPersons.cs</DependentUpon>
     </Compile>
     <Compile Include="ShopDS.cs">
       <DependentUpon>ShopDS.xsd</DependentUpon>
@@ -223,8 +235,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Report.resx">
+    <EmbeddedResource Include="Reports\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\ReportOtd.rdlc" />
+    <EmbeddedResource Include="Reports\ReportOtdeli.resx">
+      <DependentUpon>ReportOtdeli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportPersons.resx">
+      <DependentUpon>ReportPersons.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UPDATE\updateDol.resx">
       <DependentUpon>updateDol.cs</DependentUpon>

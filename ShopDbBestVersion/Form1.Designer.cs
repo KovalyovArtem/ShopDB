@@ -35,6 +35,8 @@
             this.btnExit = new System.Windows.Forms.ToolStripMenuItem();
             this.msbtnRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.btnReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnReportProd = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnReportPer = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMain = new System.Windows.Forms.ToolStrip();
@@ -87,6 +89,7 @@
             this.otdeliTovarbIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.skladiTovarbIBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dolzhnostTableAdapter1 = new ShopDbBestVersion.ShopDSTableAdapters.DolzhnostTableAdapter();
+            this.btnReportOtd = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tsMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spcMain)).BeginInit();
@@ -156,23 +159,40 @@
             // btnExit
             // 
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(128, 22);
+            this.btnExit.Size = new System.Drawing.Size(180, 22);
             this.btnExit.Text = "Выход";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // msbtnRefresh
             // 
             this.msbtnRefresh.Name = "msbtnRefresh";
-            this.msbtnRefresh.Size = new System.Drawing.Size(128, 22);
+            this.msbtnRefresh.Size = new System.Drawing.Size(180, 22);
             this.msbtnRefresh.Text = "Обновить";
             this.msbtnRefresh.Click += new System.EventHandler(this.msbtnRefresh_Click);
             // 
             // btnReport
             // 
+            this.btnReport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnReportProd,
+            this.btnReportPer,
+            this.btnReportOtd});
             this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(128, 22);
+            this.btnReport.Size = new System.Drawing.Size(180, 22);
             this.btnReport.Text = "Отчёт";
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
+            // btnReportProd
+            // 
+            this.btnReportProd.Name = "btnReportProd";
+            this.btnReportProd.Size = new System.Drawing.Size(180, 22);
+            this.btnReportProd.Text = "Продажи(за день)";
+            this.btnReportProd.Click += new System.EventHandler(this.btnReportProd_Click);
+            // 
+            // btnReportPer
+            // 
+            this.btnReportPer.Name = "btnReportPer";
+            this.btnReportPer.Size = new System.Drawing.Size(180, 22);
+            this.btnReportPer.Text = "Сотрудники";
+            this.btnReportPer.Click += new System.EventHandler(this.btnReportPer_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -185,7 +205,7 @@
             // btnHelp
             // 
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(180, 22);
+            this.btnHelp.Size = new System.Drawing.Size(149, 22);
             this.btnHelp.Text = "О программе";
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
@@ -296,7 +316,6 @@
             // 
             // tbxSearch
             // 
-            this.tbxSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.tbxSearch.Name = "tbxSearch";
             this.tbxSearch.Size = new System.Drawing.Size(100, 25);
             this.tbxSearch.TextChanged += new System.EventHandler(this.tbxSearch_TextChanged);
@@ -622,6 +641,13 @@
             // 
             this.dolzhnostTableAdapter1.ClearBeforeFill = true;
             // 
+            // btnReportOtd
+            // 
+            this.btnReportOtd.Name = "btnReportOtd";
+            this.btnReportOtd.Size = new System.Drawing.Size(180, 22);
+            this.btnReportOtd.Text = "Отделы";
+            this.btnReportOtd.Click += new System.EventHandler(this.btnReportOtd_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,6 +776,9 @@
         private ShopDSTableAdapters.DolzhnostTableAdapter dolzhnostTableAdapter1;
         private System.Windows.Forms.ToolStripMenuItem btnReport;
         private System.Windows.Forms.ToolStripMenuItem btnHelp;
+        private System.Windows.Forms.ToolStripMenuItem btnReportProd;
+        private System.Windows.Forms.ToolStripMenuItem btnReportPer;
+        private System.Windows.Forms.ToolStripMenuItem btnReportOtd;
     }
 }
 
